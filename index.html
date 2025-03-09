@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -58,7 +57,7 @@
             top: 0;
             width: 100%;
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
-            flex-wrap: wrap; /* Damit die Buttons auf kleinen Bildschirmen nicht überlappen */
+            flex-wrap: wrap;
         }
 
         .navbar .button {
@@ -73,6 +72,7 @@
             text-transform: uppercase;
             box-shadow: 0 5px 15px rgba(0, 174, 255, 0.5);
             transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+            margin: 10px;
         }
 
         .navbar .button:hover {
@@ -173,10 +173,20 @@
                 font-size: 16px;
             }
 
-            /* Buttons auf kleinen Geräten */
+            /* Verhindern, dass Text von Buttons überlappt wird */
+            .content {
+                padding: 20px;
+                margin-top: 20px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .navbar {
+                flex-direction: row;
+            }
+
             .navbar .button {
-                margin-bottom: 15px;
-                width: auto;
+                margin: 0;
             }
         }
     </style>
@@ -259,3 +269,4 @@
     </footer>
 </body>
 </html>
+
