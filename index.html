@@ -57,6 +57,7 @@
             top: 0;
             width: 100%;
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+            flex-wrap: wrap; /* Buttons sollen auf kleineren Bildschirmen nebeneinander sein */
         }
 
         .navbar .button {
@@ -71,6 +72,7 @@
             text-transform: uppercase;
             box-shadow: 0 5px 15px rgba(0, 174, 255, 0.5);
             transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 10px; /* Abstand zwischen den Buttons */
         }
 
         .navbar .button:hover {
@@ -121,6 +123,8 @@
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
         }
 
         .dark-mode-toggle:hover {
@@ -149,24 +153,24 @@
 
         /* Button adjustments for mobile */
         @media (max-width: 768px) {
-            /* Buttons nebeneinander */
+            /* Buttons nebeneinander und untereinander auf kleineren Geräten */
             .navbar {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: space-around;
+                flex-direction: column;
+                align-items: center;
+                padding: 15px 0;
             }
 
-            /* Buttons kleiner und nebeneinander */
+            /* Buttons nebeneinander aber klein */
             .navbar .button {
-                width: 48%;
-                margin-bottom: 10px; /* Abstand zwischen den Buttons */
+                width: 80%;
+                margin-bottom: 15px; /* Abstand zwischen den Buttons */
                 font-size: 14px;
-                padding: 10px;
+                padding: 12px;
             }
 
-            /* Sicherstellen, dass Texte auch auf mobilen Geräten sichtbar sind */
+            /* Sicherstellen, dass Texte auf Handys sichtbar bleiben */
             #settings, #giveaways {
-                display: block !important; /* Sicherstellen, dass diese Bereiche sichtbar sind */
+                display: block !important;
             }
 
             /* Container für die Inhalte anpassen */
