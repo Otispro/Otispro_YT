@@ -149,35 +149,41 @@
 
         /* Button adjustments for mobile */
         @media (max-width: 768px) {
-            /* Buttons undereinander und in kleinerer Größe */
+            /* Buttons nebeneinander */
+            .navbar {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+
+            /* Buttons kleiner und nebeneinander */
             .navbar .button {
-                width: 100%; /* Macht die Buttons breiter und nebeneinander */
-                margin-bottom: 10px; /* Etwas Abstand zwischen den Buttons */
-                font-size: 14px;  /* Kleinere Schriftgröße */
-                padding: 10px; /* Weniger Abstand in den Buttons */
+                width: 48%;
+                margin-bottom: 10px; /* Abstand zwischen den Buttons */
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            /* Sicherstellen, dass Texte auch auf mobilen Geräten sichtbar sind */
+            #settings, #giveaways {
+                display: block !important; /* Sicherstellen, dass diese Bereiche sichtbar sind */
             }
 
             /* Container für die Inhalte anpassen */
             .content {
-                padding: 20px; /* Weniger Abstand */
-                margin: 30px auto; /* Ein bisschen Abstand oben und unten */
-                max-width: 100%;  /* Volle Breite der Seite */
-                box-shadow: none; /* Entfernt Schatten */
+                padding: 20px;
+                margin: 30px auto;
+                max-width: 100%;
+                box-shadow: none;
             }
 
-            /* Sicherstellen, dass Texte auch auf mobilen Geräten sichtbar sind */
+            /* Sicherstellen, dass die Schriftarten lesbar bleiben */
             .content h1 {
-                font-size: 24px; /* Kleinere Schriftgröße für Titel */
+                font-size: 24px;
             }
 
             .content p {
-                font-size: 16px; /* Kleinere Schriftgröße für Text */
-                line-height: 1.5; /* Bessere Lesbarkeit */
-            }
-
-            /* Einstellungen- und Verlosungen-Text sichtbar machen */
-            #settings, #giveaways {
-                display: block !important; /* Sicherstellen, dass diese Bereiche sichtbar sind */
+                font-size: 16px;
             }
 
             /* Buttons für Dark- und Light-Mode anpassen */
@@ -185,13 +191,7 @@
                 width: 100%;
                 padding: 15px;
                 margin-top: 10px;
-                font-size: 14px; /* Kleinere Schriftgröße */
-            }
-
-            /* Buttons für mobile Geräte in einer Reihe oben */
-            .navbar {
-                flex-direction: column;
-                gap: 10px;
+                font-size: 14px;
             }
         }
     </style>
@@ -274,3 +274,4 @@
     </footer>
 </body>
 </html>
+
