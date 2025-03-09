@@ -37,7 +37,7 @@
 
         /* Logo */
         #logo {
-            font-size: 4vw;
+            font-size: 48px;
             color: #ff6600;
             text-shadow: 0 0 20px rgba(255, 102, 0, 0.5);
             text-align: center;
@@ -50,29 +50,27 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;
+            gap: 20px;
             background: rgba(0, 0, 0, 0.8);
-            padding: 15px;
+            padding: 20px;
             position: sticky;
             top: 0;
             width: 100%;
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
-            flex-wrap: wrap;
         }
 
         .navbar .button {
-            padding: 12px 20px;
+            padding: 15px 25px;
             background: linear-gradient(45deg, #007bff, #00c6ff);
             border: none;
             border-radius: 30px;
             color: white;
-            font-size: 1.2em;
+            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
             text-transform: uppercase;
             box-shadow: 0 5px 15px rgba(0, 174, 255, 0.5);
             transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 10px;
         }
 
         .navbar .button:hover {
@@ -88,8 +86,8 @@
         /* Content styling */
         .content {
             display: none;
-            padding: 20px;
-            margin: 30px auto;
+            padding: 40px 20px;
+            margin: 50px auto;
             max-width: 900px;
             background: rgba(18, 18, 18, 0.9);
             border-radius: 12px;
@@ -102,14 +100,14 @@
         }
 
         h1 {
-            font-size: 4vw;
+            font-size: 36px;
             color: #ffcc00;
             text-shadow: 2px 2px 10px rgba(255, 102, 0, 0.7);
             margin-bottom: 20px;
         }
 
         p {
-            font-size: 1.2em;
+            font-size: 18px;
             line-height: 1.6;
             text-align: justify;
         }
@@ -123,8 +121,6 @@
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s ease;
-            margin: 10px;
-            width: 100%;
         }
 
         .dark-mode-toggle:hover {
@@ -141,66 +137,61 @@
             padding: 20px;
             background: #1c1c1c;
             color: #f1f1f1;
-            position: relative;
-            margin-top: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -10px 15px rgba(0, 0, 0, 0.5);
         }
 
         footer p {
-            font-size: 1em;
+            font-size: 14px;
         }
 
-        /* Mobile and Tablet Adjustments */
+        /* Button adjustments for mobile */
         @media (max-width: 768px) {
-            #logo {
-                font-size: 6vw;
-            }
-
-            /* Navbar for mobile */
-            .navbar {
-                flex-direction: row;
-                justify-content: space-evenly;
-                padding: 10px;
-            }
-
+            /* Buttons undereinander und in kleinerer Größe */
             .navbar .button {
-                font-size: 0.9em;
-                padding: 10px 15px;
-                width: auto; /* Buttons are no longer full-width */
-                margin-bottom: 5px;
+                width: 100%; /* Macht die Buttons breiter und nebeneinander */
+                margin-bottom: 10px; /* Etwas Abstand zwischen den Buttons */
+                font-size: 14px;  /* Kleinere Schriftgröße */
+                padding: 10px; /* Weniger Abstand in den Buttons */
             }
 
-            h1 {
-                font-size: 6vw;
+            /* Container für die Inhalte anpassen */
+            .content {
+                padding: 20px; /* Weniger Abstand */
+                margin: 30px auto; /* Ein bisschen Abstand oben und unten */
+                max-width: 100%;  /* Volle Breite der Seite */
+                box-shadow: none; /* Entfernt Schatten */
             }
 
-            p {
-                font-size: 1.2em;
+            /* Sicherstellen, dass Texte auch auf mobilen Geräten sichtbar sind */
+            .content h1 {
+                font-size: 24px; /* Kleinere Schriftgröße für Titel */
             }
 
+            .content p {
+                font-size: 16px; /* Kleinere Schriftgröße für Text */
+                line-height: 1.5; /* Bessere Lesbarkeit */
+            }
+
+            /* Einstellungen- und Verlosungen-Text sichtbar machen */
+            #settings, #giveaways {
+                display: block !important; /* Sicherstellen, dass diese Bereiche sichtbar sind */
+            }
+
+            /* Buttons für Dark- und Light-Mode anpassen */
             .dark-mode-toggle, .light-mode-toggle {
                 width: 100%;
-                padding: 12px 0;
+                padding: 15px;
+                margin-top: 10px;
+                font-size: 14px; /* Kleinere Schriftgröße */
             }
 
-            footer {
-                position: relative;
-                margin-top: 20px;
-            }
-        }
-
-        /* For larger screens like tablets and laptops */
-        @media (min-width: 1024px) {
-            .navbar .button {
-                font-size: 1.4em;
-                padding: 15px 30px;
-            }
-
-            h1 {
-                font-size: 3vw;
-            }
-
-            p {
-                font-size: 1.4em;
+            /* Buttons für mobile Geräte in einer Reihe oben */
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
             }
         }
     </style>
@@ -260,23 +251,26 @@
 
     <!-- Giveaways Section -->
     <div id="giveaways" class="content">
-        <h1>Verlosungen</
-<!-- Brawl Stars News Section -->
-<div id="brawlstars" class="content">
-    <h1>Brawl Stars News</h1>
-    <p>Bleib immer auf dem Laufenden mit den neuesten Nachrichten und Updates zu Brawl Stars! Schau dir die neuesten Ankündigungen an und verpasse keine neuen Infos.</p>
-</div>
+        <h1>Verlosungen</h1>
+        <p>In diesem Bereich findest du alle Details zu meinen zukünftigen Verlosungen. Gewinne exklusive Preise, indem du an meinen Events teilnimmst!</p>
+    </div>
 
-<!-- Settings Section -->
-<div id="settings" class="content">
-    <h1>Einstellungen</h1>
-    <p>Passe deine Anzeigeoptionen hier an. Du kannst zwischen Dark Mode und Light Mode wechseln.</p>
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Dunkelmodus</button>
-    <button class="light-mode-toggle" onclick="toggleLightMode()">Hellmodus</button>
-</div>
+    <!-- Brawl Stars News Section -->
+    <div id="brawlstars" class="content">
+        <h1>Brawl Stars News</h1>
+        <p>Bleib immer auf dem Laufenden mit den neuesten Nachrichten und Updates zu Brawl Stars! Schau dir die neuesten Ankündigungen an und verpasse keine neuen Infos.</p>
+    </div>
 
-<footer>
-    <p>&copy; 2025 Otispro. Alle Rechte vorbehalten.</p>
-</footer>
+    <!-- Settings Section -->
+    <div id="settings" class="content">
+        <h1>Einstellungen</h1>
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode umschalten</button>
+        <button class="light-mode-toggle" onclick="toggleLightMode()">Light Mode umschalten</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Otispro | Alle Rechte vorbehalten.</p>
+    </footer>
 </body>
 </html>
