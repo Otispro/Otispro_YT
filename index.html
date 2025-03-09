@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -5,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Otispro - Die Ultimative YouTube-Website</title>
     <style>
-        /* Resetting some default styles for a clean slate */
+        /* Grundlegendes Reset für das Layout */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Main body styling */
+        /* Body-Styling */
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #1d1d1d, #313131);
@@ -29,7 +30,7 @@
             color: #333;
         }
 
-        /* Smooth fade-in animation */
+        /* Fade-in Animation */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -45,7 +46,7 @@
             font-weight: bold;
         }
 
-        /* Navigation bar styling */
+        /* Navbar-Styling */
         .navbar {
             display: flex;
             justify-content: center;
@@ -57,7 +58,7 @@
             top: 0;
             width: 100%;
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
-            flex-wrap: wrap; /* Buttons sollen auf kleineren Bildschirmen nebeneinander sein */
+            flex-wrap: wrap; /* Damit die Buttons auf kleinen Bildschirmen nicht überlappen */
         }
 
         .navbar .button {
@@ -72,7 +73,6 @@
             text-transform: uppercase;
             box-shadow: 0 5px 15px rgba(0, 174, 255, 0.5);
             transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 10px; /* Abstand zwischen den Buttons */
         }
 
         .navbar .button:hover {
@@ -85,7 +85,7 @@
             outline: none;
         }
 
-        /* Content styling */
+        /* Content-Styling */
         .content {
             display: none;
             padding: 40px 20px;
@@ -123,8 +123,6 @@
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s ease;
-            width: 100%;
-            margin-top: 10px;
         }
 
         .dark-mode-toggle:hover {
@@ -135,7 +133,7 @@
             background: #007bff;
         }
 
-        /* Footer Styling */
+        /* Footer-Styling */
         footer {
             text-align: center;
             padding: 20px;
@@ -151,51 +149,34 @@
             font-size: 14px;
         }
 
-        /* Button adjustments for mobile */
+        /* Anpassungen für Mobilgeräte */
         @media (max-width: 768px) {
-            /* Buttons nebeneinander und untereinander auf kleineren Geräten */
+            #logo {
+                font-size: 36px;
+            }
+
             .navbar {
                 flex-direction: column;
-                align-items: center;
-                padding: 15px 0;
+                padding: 15px;
             }
 
-            /* Buttons nebeneinander aber klein */
             .navbar .button {
-                width: 80%;
-                margin-bottom: 15px; /* Abstand zwischen den Buttons */
-                font-size: 14px;
-                padding: 12px;
+                width: 100%;
+                margin-bottom: 10px;
             }
 
-            /* Sicherstellen, dass Texte auf Handys sichtbar bleiben */
-            #settings, #giveaways {
-                display: block !important;
+            h1 {
+                font-size: 28px;
             }
 
-            /* Container für die Inhalte anpassen */
-            .content {
-                padding: 20px;
-                margin: 30px auto;
-                max-width: 100%;
-                box-shadow: none;
-            }
-
-            /* Sicherstellen, dass die Schriftarten lesbar bleiben */
-            .content h1 {
-                font-size: 24px;
-            }
-
-            .content p {
+            p {
                 font-size: 16px;
             }
 
-            /* Buttons für Dark- und Light-Mode anpassen */
-            .dark-mode-toggle, .light-mode-toggle {
-                width: 100%;
-                padding: 15px;
-                margin-top: 10px;
-                font-size: 14px;
+            /* Buttons auf kleinen Geräten */
+            .navbar .button {
+                margin-bottom: 15px;
+                width: auto;
             }
         }
     </style>
@@ -278,4 +259,3 @@
     </footer>
 </body>
 </html>
-
