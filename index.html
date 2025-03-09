@@ -155,16 +155,18 @@
                 font-size: 6vw;
             }
 
+            /* Navbar for mobile */
             .navbar {
-                flex-direction: column;
-                padding: 15px;
+                flex-direction: row;
+                justify-content: space-evenly;
+                padding: 10px;
             }
 
             .navbar .button {
-                width: 100%;
-                margin-bottom: 10px;
-                padding: 15px;
-                font-size: 1.2em;
+                font-size: 0.9em;
+                padding: 10px 15px;
+                width: auto; /* Buttons are no longer full-width */
+                margin-bottom: 5px;
             }
 
             h1 {
@@ -258,26 +260,23 @@
 
     <!-- Giveaways Section -->
     <div id="giveaways" class="content">
-        <h1>Verlosungen</h1>
-        <p>In diesem Bereich findest du alle Details zu meinen zukünftigen Verlosungen. Gewinne exklusive Preise, indem du an meinen Events teilnimmst!</p>
-    </div>
+        <h1>Verlosungen</
+<!-- Brawl Stars News Section -->
+<div id="brawlstars" class="content">
+    <h1>Brawl Stars News</h1>
+    <p>Bleib immer auf dem Laufenden mit den neuesten Nachrichten und Updates zu Brawl Stars! Schau dir die neuesten Ankündigungen an und verpasse keine neuen Infos.</p>
+</div>
 
-    <!-- Brawl Stars News Section -->
-    <div id="brawlstars" class="content">
-        <h1>Brawl Stars News</h1>
-        <p>Bleib immer auf dem Laufenden mit den neuesten Nachrichten und Updates zu Brawl Stars! Schau dir die neuesten Ankündigungen an und verpasse keine neuen Infos.</p>
-    </div>
+<!-- Settings Section -->
+<div id="settings" class="content">
+    <h1>Einstellungen</h1>
+    <p>Passe deine Anzeigeoptionen hier an. Du kannst zwischen Dark Mode und Light Mode wechseln.</p>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Dunkelmodus</button>
+    <button class="light-mode-toggle" onclick="toggleLightMode()">Hellmodus</button>
+</div>
 
-    <!-- Settings Section -->
-    <div id="settings" class="content">
-        <h1>Einstellungen</h1>
-        <p>Passe deine Anzeigeoptionen hier an. Du kannst zwischen Dark Mode und Light Mode wechseln.</p>
-        <button class="dark-mode-toggle" onclick="toggleDarkMode()">Dunkelmodus</button>
-        <button class="light-mode-toggle" onclick="toggleLightMode()">Hellmodus</button>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Otispro. Alle Rechte vorbehalten.</p>
-    </footer>
+<footer>
+    <p>&copy; 2025 Otispro. Alle Rechte vorbehalten.</p>
+</footer>
 </body>
 </html>
