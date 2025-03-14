@@ -3,276 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Otispro - Die Ultimative YouTube-Website</title>
+    <meta name="description" content="Otispro - Entdecke kreative Projekte, Videos, Events und mehr.">
+    <title>Otispro - Deine Welt der Kreativität</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Grundlegendes Reset für das Layout */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        /* Body-Styling */
-        body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1d1d1d, #313131);
-            color: #f2f2f2;
-            padding: 0;
-            margin: 0;
-            overflow-x: hidden;
-            animation: fadeIn 1s ease-in-out;
-            transition: background 0.5s ease, color 0.5s ease;
         }
 
-        body.light-mode {
-            background: #f7f7f7;
-            color: #333;
-        }
-
-        /* Fade-in Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Logo */
-        #logo {
-            font-size: 48px;
-            color: #ff6600;
-            text-shadow: 0 0 20px rgba(255, 102, 0, 0.5);
+        body {
+            background: linear-gradient(135deg, #0a0a0a, #1e1e2e);
+            color: #fff;
+            overflow: hidden;
+            transition: background-color 0.3s ease;
             text-align: center;
-            padding-top: 50px;
-            font-weight: bold;
         }
 
-        /* Navbar-Styling */
-        .navbar {
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background: rgba(15, 75, 110, 0.9);
+            color: #fff;
+            padding: 15px 40px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            position: sticky;
-            top: 0;
-            width: 100%;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
-            flex-wrap: wrap;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: slideDown 0.5s ease-in-out;
         }
 
-        .navbar .button {
-            padding: 15px 25px;
-            background: linear-gradient(45deg, #007bff, #00c6ff);
-            border: none;
-            border-radius: 30px;
-            color: white;
-            font-size: 16px;
+        header h1 {
+            font-size: 28px;
             font-weight: bold;
-            cursor: pointer;
             text-transform: uppercase;
-            box-shadow: 0 5px 15px rgba(0, 174, 255, 0.5);
-            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-            margin: 10px;
+            letter-spacing: 2px;
+            margin-right: 50px;
         }
 
-        .navbar .button:hover {
-            background: linear-gradient(45deg, #00c6ff, #007bff);
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 174, 255, 0.8);
+        .nav-links {
+            display: flex;
+            gap: 15px;
         }
 
-        .navbar .button:focus {
-            outline: none;
-        }
-
-        /* Content-Styling */
-        .content {
-            display: none;
-            padding: 40px 20px;
-            margin: 50px auto;
-            max-width: 900px;
-            background: rgba(18, 18, 18, 0.9);
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 174, 255, 0.7);
-            animation: fadeIn 0.8s ease-in-out;
-        }
-
-        .content.active {
-            display: block;
-        }
-
-        h1 {
-            font-size: 36px;
-            color: #ffcc00;
-            text-shadow: 2px 2px 10px rgba(255, 102, 0, 0.7);
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-            text-align: justify;
-        }
-
-        /* Dark Mode Button */
-        .dark-mode-toggle, .light-mode-toggle {
-            background: #333;
-            color: #fff;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s ease;
-        }
-
-        .dark-mode-toggle:hover {
-            background: #ff6600;
-        }
-
-        .light-mode-toggle:hover {
-            background: #007bff;
-        }
-
-        /* Footer-Styling */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #1c1c1c;
-            color: #f1f1f1;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            box-shadow: 0 -10px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        footer p {
+        .nav-links button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid white;
+            padding: 10px 20px;
             font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            text-transform: uppercase;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInButtons 1s forwards;
         }
 
-        /* Anpassungen für Mobilgeräte */
-        @media (max-width: 768px) {
-            #logo {
-                font-size: 36px;
-            }
-
-            .navbar {
-                flex-direction: row;
-                flex-wrap: wrap;
-                padding: 10px;
-                gap: 10px;
-                justify-content: center;
-            }
-
-            .navbar .button {
-                width: auto; /* Verhindert, dass die Buttons zu groß werden */
-                padding: 10px 15px;
-                font-size: 12px; /* Verkleinert die Schriftgröße der Buttons auf Handys */
-                margin: 5px;
-                text-align: center;
-            }
-
-            h1 {
-                font-size: 28px;
-            }
-
-            p {
-                font-size: 16px;
-            }
-
-            /* Verhindern, dass Text von Buttons überlappt wird */
-            .content {
-                padding: 20px;
-                margin-top: 20px;
-            }
+        .nav-links button:hover {
+            background: white;
+            color: #0f4b6e;
         }
 
-        @media (min-width: 768px) {
-            .navbar {
-                flex-direction: row;
-            }
+        .nav-links button:nth-child(1) { animation-delay: 0.2s; }
+        .nav-links button:nth-child(2) { animation-delay: 0.4s; }
+        .nav-links button:nth-child(3) { animation-delay: 0.6s; }
+        .nav-links button:nth-child(4) { animation-delay: 0.8s; }
+        .nav-links button:nth-child(5) { animation-delay: 1s; }
 
-            .navbar .button {
-                margin: 0;
-            }
+        /* Hauptinhalt */
+        main {
+            margin-top: 100px;
+            padding: 50px 20px;
+            background: #222;
+            min-height: 100vh;
         }
+
+        .intro h2 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1e88e5;
+            text-transform: uppercase;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .intro p {
+            font-size: 20px;
+            color: #bbb;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.8;
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        .text-content {
+            display: none;
+            background: #333;
+            padding: 25px;
+            margin-top: 30px;
+            border-radius: 10px;
+            color: #ccc;
+            max-width: 900px;
+            margin: 30px auto;
+            line-height: 1.8;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            text-align: left;
+            opacity: 0;
+            animation: fadeInContent 1.5s ease-in-out forwards;
+        }
+
+        .text-content h3 {
+            color: #1e88e5;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .text-content p {
+            font-size: 18px;
+            color: #ccc;
+        }
+
+        /* Animationen */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeInButtons {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInContent {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
     </style>
-    <script>
-        function showContent(section) {
-            var contents = document.querySelectorAll('.content');
-            contents.forEach(content => content.classList.remove('active'));
-            document.getElementById(section).classList.add('active');
-        }
-
-        function toggleDarkMode() {
-            document.body.classList.remove('light-mode');
-            document.body.classList.add('dark-mode');
-        }
-
-        function toggleLightMode() {
-            document.body.classList.remove('dark-mode');
-            document.body.classList.add('light-mode');
-        }
-    </script>
 </head>
 <body>
-    <div id="logo">OTISPRO</div>
-    <div class="navbar">
-        <button class="button" onclick="showContent('home')">Startseite</button>
-        <button class="button" onclick="showContent('about')">Über mich</button>
-        <button class="button" onclick="showContent('videos')">Meine Videos</button>
-        <button class="button" onclick="showContent('events')">Events</button>
-        <button class="button" onclick="showContent('giveaways')">Verlosungen</button>
-        <button class="button" onclick="showContent('brawlstars')">Brawl Stars News</button>
-        <button class="button" onclick="showContent('settings')">Einstellungen</button>
-    </div>
+    <header>
+        <h1>Otispro</h1>
+        <div class="nav-links">
+            <button onclick="showText('about')">Über mich</button>
+            <button onclick="showText('videos')">Meine Videos</button>
+            <button onclick="showText('projects')">Projekte</button>
+            <button onclick="showText('giveaways')">Verlosungen</button>
+            <button onclick="showText('contact')">Kontakt</button>
+        </div>
+    </header>
 
-    <!-- Home Section -->
-    <div id="home" class="content active">
-        <h1>Willkommen auf Otispro's Website!</h1>
-        <p>Willkommen auf meiner Website! Hier findest du alles, was du über meinen YouTube-Kanal wissen musst. Klicke auf die verschiedenen Bereiche oben, um mehr über meine Videos, Events, und vieles mehr zu erfahren.</p>
-    </div>
+    <main>
+        <div class="intro">
+            <h2>Willkommen auf meiner Website!</h2>
+            <p>Hier findest du alles, was du über meine Projekte, Videos, Events und mehr erfahren musst.</p>
+        </div>
+        <div id="about" class="text-content">
+            <h3>Über mich</h3>
+            <p>Ich bin Otispro, ein leidenschaftlicher Content Creator, der es liebt, spannende Projekte umzusetzen und mit einer engagierten Community zu interagieren. Mein Fokus liegt auf kreativem Gaming, innovativen Tutorials und interaktiven Videos.</p>
+        </div>
+        <div id="videos" class="text-content">
+            <h3>Meine Videos</h3>
+            <p>In meinen Videos teile ich spannende Erlebnisse, Tipps und Tricks aus der Gaming-Welt. Egal, ob du nach Strategien für dein Lieblingsspiel suchst oder einfach ein paar coole Challenges erleben möchtest – hier findest du alles.</p>
+        </div>
+        <div id="projects" class="text-content">
+            <h3>Projekte</h3>
+            <p>Aktuell arbeite ich an verschiedenen Projekten, die eine Mischung aus Gaming, Tutorials und kreativen Ideen darstellen. Diese Projekte umfassen alles von interaktiven Spielentwicklungen bis hin zu kreativen Herausforderungen.</p>
+        </div>
+        <div id="giveaways" class="text-content">
+            <h3>Verlosungen</h3>
+            <p>Ich veranstalte regelmäßig Verlosungen, bei denen du fantastische Preise gewinnen kannst! Diese Verlosungen sind eine Möglichkeit, mich bei meiner Community zu bedanken und meinen treuen Zuschauern eine Freude zu bereiten.</p>
+        </div>
+        <div id="contact" class="text-content">
+            <h3>Kontakt</h3>
+            <p>Hast du Fragen oder Anregungen? Möchtest du mit mir zusammenarbeiten oder einfach Hallo sagen? Dann zögere nicht, mich zu kontaktieren!</p>
+        </div>
+    </main>
 
-    <!-- About Section -->
-    <div id="about" class="content">
-        <h1>Über mich</h1>
-        <p>Ich bin Otispro, ein leidenschaftlicher YouTuber, der sich auf Brawl Stars konzentriert. Auf meinem Kanal findest du spannende Videos, Updates und Tipps zu diesem fantastischen Spiel. Ich liebe es, meine Zuschauer zu unterhalten und zu informieren!</p>
-    </div>
-
-    <!-- Videos Section -->
-    <div id="videos" class="content">
-        <h1>Meine Videos</h1>
-        <p>Ich lade regelmäßig neue Videos hoch, die tiefere Einblicke in die Welt von Brawl Stars geben. Egal, ob du an Brawler-Strategien, neuen Updates oder den besten Spielmethoden interessiert bist, auf meinem Kanal wirst du fündig!</p>
-    </div>
-
-    <!-- Events Section -->
-    <div id="events" class="content">
-        <h1>Events</h1>
-        <p>Hier findest du alle Infos zu meinen kommenden Events. Sei es ein Live-Stream oder ein besonderes Turnier, verpass kein Highlight!</p>
-    </div>
-
-    <!-- Giveaways Section -->
-    <div id="giveaways" class="content">
-        <h1>Verlosungen</h1>
-        <p>In diesem Bereich findest du alle Details zu meinen zukünftigen Verlosungen. Gewinne exklusive Preise, indem du an meinen Events teilnimmst!</p>
-    </div>
-
-    <!-- Brawl Stars News Section -->
-    <div id="brawlstars" class="content">
-        <h1>Brawl Stars News</h1>
-        <p>Bleib immer auf dem Laufenden mit den neuesten Nachrichten und Updates zu Brawl Stars! Schau dir die neuesten Ankündigungen an und verpasse keine neuen Infos.</p>
-    </div>
-
-    <!-- Settings Section -->
-    <div id="settings" class="content">
-        <h1>Einstellungen</h1>
-        <button class="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode umschalten</button>
-        <button class="light-mode-toggle" onclick="toggleLightMode()">Light Mode umschalten</button>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Otispro | Alle Rechte vorbehalten.</p>
-    </footer>
+    <script>
+        function showText(section) {
+            document.querySelectorAll('.text-content').forEach(div => div.style.display = 'none');
+            const targetDiv = document.getElementById(section);
+            targetDiv.style.display = 'block';
+            targetDiv.classList.add('fade-in-content');
+        }
+    </script>
 </body>
 </html>
-
